@@ -11,14 +11,14 @@ import Test.Tasty
 import Test.Tasty.HUnit
 import Text.Printf
 
-import System.FilePath  --                 ((</>), (<.>))
-import System.IO                        -- (withFile)
+import System.FilePath
+import System.IO
 import System.Exit
 import System.Environment (getArgs)
 
 import Language.FDL.Utils
 import Language.FDL.Normalizer
-import Language.FDL.Types  hiding     (Program, Result)
+import Language.FDL.Types  hiding     (Result)
 import Language.FDL.Parser
 import Language.FDL.Compiler
 
