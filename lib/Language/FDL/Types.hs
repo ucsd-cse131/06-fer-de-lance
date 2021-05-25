@@ -76,10 +76,10 @@ data Reg
   | RBP
   | RDI
   | RSI
-  | RDX 
+  | RDX
   | RCX
   | R8
-  | R9 
+  | R9
   | R14
   | R15
   deriving (Show)
@@ -413,9 +413,9 @@ isAnf (Prim1 _ e _)    = isImm e
 isAnf (Prim2 _ e e' _) = isImm e && isImm e'
 isAnf (If c t e _)     = isImm c && isAnf t && isAnf e
 isAnf (Let _ e e' _)   = isAnf e && isAnf e'
-isAnf (Tuple es _)     = all isAnf es
-isAnf (GetItem e i _)  = isAnf e && isAnf i
-isAnf (App e es _)     = all isAnf (e:es)
+isAnf (Tuple es _)     = all isImm es
+isAnf (GetItem e i _)  = isImm e && isImm i
+isAnf (App e es _)     = all isImm (e:es)
 isAnf (Lam _ e _)      = isAnf e
 isAnf (Fun _ _ e _)    = isAnf e
 
